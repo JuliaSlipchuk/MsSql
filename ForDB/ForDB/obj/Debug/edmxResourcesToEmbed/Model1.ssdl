@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AirportModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Airoport">
+    <Key>
+      <PropertyRef Name="AirportName" />
+    </Key>
+    <Property Name="AirportName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AirportAddress" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Boss">
+    <Key>
+      <PropertyRef Name="PassportNumber" />
+    </Key>
+    <Property Name="PassportNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="FirstNameBoss" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastNameBoss" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BirthYear" Type="int" Nullable="false" />
+    <Property Name="PortName" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CharterFlight">
+    <Key>
+      <PropertyRef Name="FlightNumb" />
+    </Key>
+    <Property Name="FlightNumb" Type="int" Nullable="false" />
+    <Property Name="Customer" Type="nvarchar" MaxLength="88" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="FlightNumber" />
+    </Key>
+    <Property Name="FlightNumber" Type="int" Nullable="false" />
+    <Property Name="TimeTable" Type="datetime" Nullable="false" />
+    <Property Name="AirportName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FlightTime" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FreightFlight">
+    <Key>
+      <PropertyRef Name="FlightNumb" />
+    </Key>
+    <Property Name="FlightNumb" Type="int" Nullable="false" />
+    <Property Name="MaxLoadCapacity" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IntermediateTable">
+    <Key>
+      <PropertyRef Name="FlightNumb" />
+      <PropertyRef Name="PassportNumb" />
+    </Key>
+    <Property Name="FlightNumb" Type="int" Nullable="false" />
+    <Property Name="PassportNumb" Type="nvarchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Partition">
+    <Key>
+      <PropertyRef Name="PartName" />
+      <PropertyRef Name="PortA" />
+    </Key>
+    <Property Name="PartName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NumberOfEmpl" Type="int" Nullable="false" />
+    <Property Name="PortA" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passenger1">
+    <Key>
+      <PropertyRef Name="PassportNumber" />
+    </Key>
+    <Property Name="PassportNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="PassportNumbPartner" Type="nvarchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="Passenger2">
+    <Key>
+      <PropertyRef Name="PassportNumber" />
+    </Key>
+    <Property Name="PassportNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BirthYear" Type="int" Nullable="false" />
+    <Property Name="PassportNumbPartner" Type="nvarchar" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="PassengersFlight">
+    <Key>
+      <PropertyRef Name="FlightNumb" />
+    </Key>
+    <Property Name="FlightNumb" Type="int" Nullable="false" />
+    <Property Name="MaxNumbPasseng" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pilot">
+    <Key>
+      <PropertyRef Name="PassportNumber" />
+    </Key>
+    <Property Name="PassportNumber" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="35" Nullable="false" />
+    <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="BirthYear" Type="int" Nullable="false" />
+    <Property Name="LastMedicalView" Type="int" Nullable="false" />
+    <Property Name="FlightNumb" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Plane">
+    <Key>
+      <PropertyRef Name="PlaneNumber" />
+    </Key>
+    <Property Name="PlaneNumber" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="TypeP" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Maker" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="LatestReview" Type="date" Nullable="false" />
+    <Property Name="FlightNumb" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK__Boss__PortName__3F466844">
+    <End Role="Airoport" Type="Self.Airoport" Multiplicity="1" />
+    <End Role="Boss" Type="Self.Boss" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airoport">
+        <PropertyRef Name="AirportName" />
+      </Principal>
+      <Dependent Role="Boss">
+        <PropertyRef Name="PortName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CharterFl__Fligh__52593CB8">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="CharterFlight" Type="Self.CharterFlight" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="FlightNumber" />
+      </Principal>
+      <Dependent Role="CharterFlight">
+        <PropertyRef Name="FlightNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Flight__AirportN__4222D4EF">
+    <End Role="Airoport" Type="Self.Airoport" Multiplicity="1" />
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airoport">
+        <PropertyRef Name="AirportName" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="AirportName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FreightFl__MaxLo__4F7CD00D">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="FreightFlight" Type="Self.FreightFlight" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="FlightNumber" />
+      </Principal>
+      <Dependent Role="FreightFlight">
+        <PropertyRef Name="FlightNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Intermedi__Fligh__5BE2A6F2">
+    <End Role="PassengersFlight" Type="Self.PassengersFlight" Multiplicity="1" />
+    <End Role="IntermediateTable" Type="Self.IntermediateTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PassengersFlight">
+        <PropertyRef Name="FlightNumb" />
+      </Principal>
+      <Dependent Role="IntermediateTable">
+        <PropertyRef Name="FlightNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Intermedi__Passp__5CD6CB2B">
+    <End Role="Passenger1" Type="Self.Passenger1" Multiplicity="1" />
+    <End Role="IntermediateTable" Type="Self.IntermediateTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger1">
+        <PropertyRef Name="PassportNumber" />
+      </Principal>
+      <Dependent Role="IntermediateTable">
+        <PropertyRef Name="PassportNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Partition__PortA__3A81B327">
+    <End Role="Airoport" Type="Self.Airoport" Multiplicity="1" />
+    <End Role="Partition" Type="Self.Partition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airoport">
+        <PropertyRef Name="AirportName" />
+      </Principal>
+      <Dependent Role="Partition">
+        <PropertyRef Name="PortA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Passenger__Fligh__5629CD9C">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="PassengersFlight" Type="Self.PassengersFlight" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="FlightNumber" />
+      </Principal>
+      <Dependent Role="PassengersFlight">
+        <PropertyRef Name="FlightNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Passenger__Passp__619B8048">
+    <End Role="Passenger1" Type="Self.Passenger1" Multiplicity="0..1" />
+    <End Role="Passenger2" Type="Self.Passenger2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger1">
+        <PropertyRef Name="PassportNumber" />
+      </Principal>
+      <Dependent Role="Passenger2">
+        <PropertyRef Name="PassportNumbPartner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pilot__FlightNum__4BAC3F29">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="Pilot" Type="Self.Pilot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="FlightNumber" />
+      </Principal>
+      <Dependent Role="Pilot">
+        <PropertyRef Name="FlightNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Plane__FlightNum__68487DD7">
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="Plane" Type="Self.Plane" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flight">
+        <PropertyRef Name="FlightNumber" />
+      </Principal>
+      <Dependent Role="Plane">
+        <PropertyRef Name="FlightNumb" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AirportModelStoreContainer">
+    <EntitySet Name="Airoport" EntityType="Self.Airoport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Boss" EntityType="Self.Boss" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CharterFlight" EntityType="Self.CharterFlight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FreightFlight" EntityType="Self.FreightFlight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntermediateTable" EntityType="Self.IntermediateTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partition" EntityType="Self.Partition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passenger1" EntityType="Self.Passenger1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passenger2" EntityType="Self.Passenger2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PassengersFlight" EntityType="Self.PassengersFlight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pilot" EntityType="Self.Pilot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plane" EntityType="Self.Plane" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Boss__PortName__3F466844" Association="Self.FK__Boss__PortName__3F466844">
+      <End Role="Airoport" EntitySet="Airoport" />
+      <End Role="Boss" EntitySet="Boss" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CharterFl__Fligh__52593CB8" Association="Self.FK__CharterFl__Fligh__52593CB8">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="CharterFlight" EntitySet="CharterFlight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Flight__AirportN__4222D4EF" Association="Self.FK__Flight__AirportN__4222D4EF">
+      <End Role="Airoport" EntitySet="Airoport" />
+      <End Role="Flight" EntitySet="Flight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FreightFl__MaxLo__4F7CD00D" Association="Self.FK__FreightFl__MaxLo__4F7CD00D">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="FreightFlight" EntitySet="FreightFlight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Intermedi__Fligh__5BE2A6F2" Association="Self.FK__Intermedi__Fligh__5BE2A6F2">
+      <End Role="PassengersFlight" EntitySet="PassengersFlight" />
+      <End Role="IntermediateTable" EntitySet="IntermediateTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Intermedi__Passp__5CD6CB2B" Association="Self.FK__Intermedi__Passp__5CD6CB2B">
+      <End Role="Passenger1" EntitySet="Passenger1" />
+      <End Role="IntermediateTable" EntitySet="IntermediateTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Partition__PortA__3A81B327" Association="Self.FK__Partition__PortA__3A81B327">
+      <End Role="Airoport" EntitySet="Airoport" />
+      <End Role="Partition" EntitySet="Partition" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Passenger__Fligh__5629CD9C" Association="Self.FK__Passenger__Fligh__5629CD9C">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="PassengersFlight" EntitySet="PassengersFlight" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Passenger__Passp__619B8048" Association="Self.FK__Passenger__Passp__619B8048">
+      <End Role="Passenger1" EntitySet="Passenger1" />
+      <End Role="Passenger2" EntitySet="Passenger2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pilot__FlightNum__4BAC3F29" Association="Self.FK__Pilot__FlightNum__4BAC3F29">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="Pilot" EntitySet="Pilot" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Plane__FlightNum__68487DD7" Association="Self.FK__Plane__FlightNum__68487DD7">
+      <End Role="Flight" EntitySet="Flight" />
+      <End Role="Plane" EntitySet="Plane" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

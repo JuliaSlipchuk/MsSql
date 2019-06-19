@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36db52216f084e8097d17767e3154fea" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="AirportModel.Airoport" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Boss" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.CharterFlight" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Flight" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.FreightFlight" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Partition" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Passenger1" Width="1.75" PointX="7.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Passenger2" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.PassengersFlight" Width="1.75" PointX="5" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Pilot" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.Plane" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirportModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="AirportModel.FK__Boss__PortName__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__Flight__AirportN__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__Partition__PortA__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__CharterFl__Fligh__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__FreightFl__MaxLo__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__Passenger__Fligh__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__Pilot__FlightNum__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__Plane__FlightNum__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.FK__Passenger__Passp__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="AirportModel.IntermediateTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
